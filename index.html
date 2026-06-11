@@ -145,10 +145,12 @@ input:checked+.sld:before{transform:translateX(20px)}
 .lbar{width:100%;height:11px;background:#e5e7eb;border-radius:6px;overflow:hidden;margin-bottom:.4rem}
 .lfill{height:100%;background:var(--pink);border-radius:6px;transition:width .18s}
 
-/* Hero layout — image beside options, never overlapping */
-.hero-layout{position:relative;overflow:hidden;min-height:420px}
-.hero-content{width:62%;position:relative;z-index:1}
-.hero-img{position:absolute;right:-20px;bottom:0;width:52%;max-width:220px;object-fit:contain;object-position:bottom;pointer-events:none;z-index:0}
+/* Hero layout — image beside options, never overlapping (flex, no absolute) */
+.hero-layout{display:flex;flex-wrap:wrap;align-items:flex-end;column-gap:.4rem}
+.hero-content{flex:1 1 55%;min-width:0;position:relative;z-index:1;align-self:flex-start}
+.hero-img{flex:0 0 36%;align-self:flex-end;width:36%;max-width:185px;object-fit:contain;object-position:bottom center;pointer-events:none;display:block;margin-left:auto}
+.hero-layout > p{flex-basis:100%;width:100%}
+@media (max-width:359px){.hero-content{flex-basis:58%}.hero-img{flex-basis:34%;width:34%}}
 </style>
 </head>
 <body>
@@ -393,7 +395,7 @@ const IMG_APP = "data:image/webp;base64,UklGRuh5AABXRUJQVlA4WAoAAAAgAAAA5wMAHwMA
     <p class="sub">Escolha todas as opções aplicáveis</p>
     <!-- Imagens marrons (série marrom) -->
     <button class="opt" id="o8-barriga" onclick="tog('s8','barriga')"><img class="opt-img" data-s="IMG_BARRIGA" src="" alt=""><div class="opt-lbl">Barriga</div><div class="opt-chk"></div></button>
-    <button class="opt" id="o8-bunda" onclick="tog('s8','bunda')"><img class="opt-img" data-s="IMG_BACK" src="" alt=""><div class="opt-lbl">Bunda</div><div class="opt-chk"></div></button>
+    <button class="opt" id="o8-bunda" onclick="tog('s8','bunda')"><img class="opt-img" data-s="IMG_SADDLEBAGS" src="" alt=""><div class="opt-lbl">Bunda</div><div class="opt-chk"></div></button>
     <button class="opt" id="o8-pernas" onclick="tog('s8','pernas')"><img class="opt-img" data-s="IMG_PERNAS" src="" alt=""><div class="opt-lbl">Pernas</div><div class="opt-chk"></div></button>
     <button class="opt" id="o8-peito" onclick="tog('s8','peito')"><img class="opt-img" data-s="IMG_BREASTS" src="" alt=""><div class="opt-lbl">Peito</div><div class="opt-chk"></div></button>
     <button class="opt" id="o8-bracos" onclick="tog('s8','bracos')"><img class="opt-img" data-s="IMG_BRACOS" src="" alt=""><div class="opt-lbl">Braços</div><div class="opt-chk"></div></button>
