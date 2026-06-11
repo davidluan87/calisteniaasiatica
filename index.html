@@ -152,6 +152,20 @@ input:checked+.sld:before{transform:translateX(20px)}
 .hero-img{flex:0 0 36%;align-self:flex-end;width:36%;max-width:185px;object-fit:contain;object-position:bottom center;pointer-events:none;margin-left:auto}
 .hero-layout>p{flex-basis:100%;width:100%}
 @media (max-width:359px){.hero-content{flex-basis:58%}.hero-img{flex-basis:34%;width:34%}}
+/* ===== Step 1 — layout de sobreposição (imagem grande embaixo à direita) ===== */
+#s1 .main{position:relative;overflow:hidden}
+.s1-wrap{max-width:480px;margin:0 auto;padding:1.25rem 1rem;min-height:100%;box-sizing:border-box}
+.s1-content{position:relative;z-index:2}
+.s1-content h1,.s1-teste,.s1-q{text-align:center}
+.s1-teste{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
+.s1-q{font-weight:700;font-size:.9rem;margin-bottom:.85rem}
+.s1-opts{width:68%}
+.s1-opts .opt{margin-bottom:.6rem;background:#f0f0f0;border-color:transparent}
+.s1-opts .opt-arr{color:#555;font-size:1.15rem}
+.s1-terms{font-size:.62rem;color:var(--muted);margin-top:1.1rem;line-height:1.5;max-width:68%}
+.s1-hero2{position:absolute;right:-40%;bottom:-12px;height:52vh;min-height:370px;max-height:560px;width:auto;object-position:bottom center;z-index:1;pointer-events:none;opacity:0;transition:opacity .35s}
+@media (max-width:380px){.s1-opts,.s1-terms{width:66%;max-width:66%}.s1-hero2{right:-48%}}
+@media (min-width:440px){.s1-hero2{right:-34%;height:50vh}}
 </style>
 </head>
 <body>
@@ -209,18 +223,20 @@ const IMG_APP = "data:image/webp;base64,UklGRuh5AABXRUJQVlA4WAoAAAAgAAAA5wMAHwMA
     <span class="hdr-badge">by Atlas</span>
   </header>
   <div class="main">
-    <div class="wrap hero-layout">
-      <div class="hero-content">
+    <div class="s1-wrap">
+      <img id="s1-hero" class="s1-hero2" src="" alt="">
+      <div class="s1-content">
         <h1>Programa de Calistenia Asiática <span class="hl">para Mulheres</span></h1>
-        <p style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem">TESTE DE 1 MINUTO</p>
-        <p style="font-weight:700;font-size:.9rem;margin-bottom:.6rem">Quantos anos você tem?</p>
-        <button class="opt" onclick="selectAge('39-45')"><div class="opt-lbl">39 – 45</div><div class="opt-arr">→</div></button>
-        <button class="opt" onclick="selectAge('46-50')"><div class="opt-lbl">46 – 50</div><div class="opt-arr">→</div></button>
-        <button class="opt" onclick="selectAge('51-60')"><div class="opt-lbl">51 – 60</div><div class="opt-arr">→</div></button>
-        <button class="opt" onclick="selectAge('60+')"><div class="opt-lbl">60+</div><div class="opt-arr">→</div></button>
+        <p class="s1-teste">TESTE DE 1 MINUTO</p>
+        <p class="s1-q">Quantos anos você tem?</p>
+        <div class="s1-opts">
+          <button class="opt" onclick="selectAge('39-45')"><div class="opt-lbl">39 – 45</div><div class="opt-arr">→</div></button>
+          <button class="opt" onclick="selectAge('46-50')"><div class="opt-lbl">46 – 50</div><div class="opt-arr">→</div></button>
+          <button class="opt" onclick="selectAge('51-60')"><div class="opt-lbl">51 – 60</div><div class="opt-arr">→</div></button>
+          <button class="opt" onclick="selectAge('60+')"><div class="opt-lbl">60+</div><div class="opt-arr">→</div></button>
+        </div>
+        <p class="s1-terms">Ao continuar, você concorda com nossos <a href="#" style="text-decoration:underline;color:inherit">Termos de Serviço</a> e nossa <a href="#" style="text-decoration:underline;color:inherit">Política de Privacidade</a></p>
       </div>
-      <img id="s1-hero" class="hero-img" src="" alt="">
-      <p style="font-size:.62rem;color:var(--muted);margin-top:1rem;line-height:1.5;position:relative;z-index:1">Ao continuar, você concorda com nossos <a href="#" style="text-decoration:underline;color:inherit">Termos de Serviço</a> e nossa <a href="#" style="text-decoration:underline;color:inherit">Política de Privacidade</a></p>
     </div>
   </div>
 </div>
