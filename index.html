@@ -181,9 +181,24 @@ input:checked+.sld:before{transform:translateX(20px)}
 .s12-opts{width:58%}
 .s12-opts .opt{background:#fff;border-color:transparent;box-shadow:0 3px 14px rgba(0,0,0,.08);margin-bottom:.7rem;padding:.85rem .9rem}
 .s12-opts .opt-arr{color:#cfcfcf;font-size:1.3rem}
-#s12 .s1-hero2{height:88vh;min-height:520px;max-height:860px;right:-14%}
-@media (max-width:380px){.s12-opts{width:56%}#s12 .s1-hero2{right:-22%}}
-@media (min-width:440px){#s12 .s1-hero2{right:-8%;height:84vh}}
+#s12 .s1-hero2{height:calc(100vh - 250px);min-height:420px;max-height:640px;right:auto;left:50%;transform:translateX(-46%);bottom:0}
+@media (max-width:380px){.s12-opts{width:56%}#s12 .s1-hero2{transform:translateX(-44%)}}
+@media (min-width:440px){#s12 .s1-hero2{transform:translateX(-48%)}}
+@media (min-width:520px){#s12 .s1-hero2{transform:translateX(-31%)}}
+/* ===== Etapa 22 — overlay (mulher bebendo água à direita) ===== */
+#s22 .main{position:relative;overflow:hidden}
+#s22 .s1-content h1{margin-bottom:1.2rem}
+.s22-opts{width:52%}
+.s22-opts .opt{background:#fff;border-color:transparent;box-shadow:0 3px 14px rgba(0,0,0,.08);margin-bottom:.75rem;padding:.95rem .9rem}
+.s22-opts .opt-arr{color:#cfcfcf;font-size:1.3rem}
+#s22 .s1-hero2{width:62%;height:calc(100vh - 235px);min-height:0;max-height:none;object-fit:contain;object-position:bottom right;right:-4%;bottom:0}
+@media (max-width:380px){.s22-opts{width:52%}#s22 .s1-hero2{width:64%;right:-6%}}
+@media (min-width:440px){#s22 .s1-hero2{width:56%;right:-2%}}
+@media (min-width:520px){#s22 .s1-hero2{width:280px;right:max(calc(50% - 470px),-30px)}}
+/* ===== Etapa 23 — imagem do sono + grade 2x2 ===== */
+#s23 .img-card img{width:100%;height:240px;object-fit:cover;display:block}
+.s23-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.1rem}
+.s23-grid .opt{margin-bottom:0;background:#fff;border-color:transparent;box-shadow:0 3px 14px rgba(0,0,0,.08);padding:1.05rem .95rem;min-height:70px;font-size:.95rem}
 </style>
 </head>
 <body>
@@ -209,6 +224,13 @@ const IMG_S8_BRACOS = "https://i.postimg.cc/9f23b8sR/bracos-Bm-Nk-Lcku.webp";
 const IMG_S13_COSTAS = "https://i.postimg.cc/mkCGLvHy/back-D2DUI9o8-(2).webp";
 const IMG_S13_KNEES = "https://i.postimg.cc/fymhzG9B/knees-ankles-WZo-Jd-NID-(3).webp";
 const IMG_S13_HIP = "https://i.postimg.cc/L5LM9c1D/hip-E-F3c-LZa-(2).webp";
+const IMG_AGUA = "https://i.postimg.cc/yxVBYVFf/woman-drinking-water-BLgc-ZVl1-(1).webp";
+const IMG_SONO = "https://i.postimg.cc/3rPVBr4Y/woman-sleeping-mobile-Cw-Fe-GCXZ-(1).webp";
+const IMG_S24_VEGETARIANA = "https://i.postimg.cc/XJ9d6g8F/vegetarian-BZpnu-IQK.jpg";
+const IMG_S24_VEGANA = "https://i.postimg.cc/XJ9d6g8d/vegan-Dko-Jywf-O.jpg";
+const IMG_S24_GLUTEN = "https://i.postimg.cc/MT1VJYDc/gluten-free-Br-MIw2n-S.jpg";
+const IMG_S24_LACTOSE = "https://i.postimg.cc/63Cnxh0G/lactose-free-ws-MFy0Rx.jpg";
+const IMG_S24_SEMREST = "https://i.postimg.cc/76S0rNVz/no-restrictions-BYq0nyl-U.jpg";
 const IMG_S13_OMBROS = "https://i.postimg.cc/hvTqDkd2/download-(8).webp";
 const IMG_PERNAS = "https://i.postimg.cc/cJWqh9PK/pernas-DV7nbtv6.webp";
 const IMG_OK = "data:image/webp;base64,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";
@@ -714,17 +736,24 @@ const IMG_COUCH = "data:image/webp;base64,UklGRvL3AABXRUJQVlA4WAoAAAAgAAAAfwcA1Q
   </div></div>
 </div>
 
-<!-- ===== S22: Água ===== -->
+<!-- ===== S22: Água — imagem à direita, NUNCA sobre os botões ===== -->
 <div class="screen" id="s22">
   <header class="hdr"><button class="hdr-back" onclick="goTo(21)">‹</button><span class="hdr-logo">CALISTENIA</span><span class="hdr-badge">by Atlas</span></header>
   <div class="prog"><div class="prog-fill" style="width:65%"></div></div>
-  <div class="main"><div class="wrap">
-    <h1 class="center">Quanto de água você bebe diariamente?</h1>
-    <button class="opt" onclick="goTo(23)"><div class="opt-lbl">Eu só tomo café ou chá</div><div class="opt-arr">›</div></button>
-    <button class="opt" onclick="goTo(23)"><div class="opt-lbl">Cerca de 2 copos (0,5 L)</div><div class="opt-arr">›</div></button>
-    <button class="opt" onclick="goTo(23)"><div class="opt-lbl">2 a 6 copos (0,5–1,5 L)</div><div class="opt-arr">›</div></button>
-    <button class="opt" onclick="goTo(23)"><div class="opt-lbl">Mais de 6 copos</div><div class="opt-arr">›</div></button>
-  </div></div>
+  <div class="main">
+    <div class="s1-wrap">
+      <img id="img-agua" class="s1-hero2" src="" alt="">
+      <div class="s1-content">
+        <h1>Quanto de água você bebe diariamente?</h1>
+        <div class="s22-opts">
+          <button class="opt" onclick="goTo(23)"><div class="opt-lbl">Eu só tomo café ou chá</div><div class="opt-arr">›</div></button>
+          <button class="opt" onclick="goTo(23)"><div class="opt-lbl">Cerca de 2 copos (0,5 L)</div><div class="opt-arr">›</div></button>
+          <button class="opt" onclick="goTo(23)"><div class="opt-lbl">2 a 6 copos (0,5–1,5 L)</div><div class="opt-arr">›</div></button>
+          <button class="opt" onclick="goTo(23)"><div class="opt-lbl">Mais de 6 copos</div><div class="opt-arr">›</div></button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ===== S23: Sono ===== -->
@@ -733,10 +762,13 @@ const IMG_COUCH = "data:image/webp;base64,UklGRvL3AABXRUJQVlA4WAoAAAAgAAAAfwcA1Q
   <div class="prog"><div class="prog-fill" style="width:68%"></div></div>
   <div class="main"><div class="wrap">
     <h1 class="center">Quantas horas você costuma dormir?</h1>
-    <button class="opt" onclick="goTo(24)"><div class="opt-lbl">Menos de 5 horas</div><div class="opt-arr">›</div></button>
-    <button class="opt" onclick="goTo(24)"><div class="opt-lbl">5-6 horas</div><div class="opt-arr">›</div></button>
-    <button class="opt" onclick="goTo(24)"><div class="opt-lbl">7-8 horas</div><div class="opt-arr">›</div></button>
-    <button class="opt" onclick="goTo(24)"><div class="opt-lbl">Mais de 8 horas</div><div class="opt-arr">›</div></button>
+    <div class="img-card"><img id="img-sono" src="" alt=""></div>
+    <div class="s23-grid">
+      <button class="opt" onclick="goTo(24)"><div class="opt-lbl">Menos de 5 horas</div></button>
+      <button class="opt" onclick="goTo(24)"><div class="opt-lbl">5-6 horas</div></button>
+      <button class="opt" onclick="goTo(24)"><div class="opt-lbl">7-8 horas</div></button>
+      <button class="opt" onclick="goTo(24)"><div class="opt-lbl">Mais de 8 horas</div></button>
+    </div>
   </div></div>
 </div>
 
@@ -746,11 +778,11 @@ const IMG_COUCH = "data:image/webp;base64,UklGRvL3AABXRUJQVlA4WAoAAAAgAAAAfwcA1Q
   <div class="prog"><div class="prog-fill" style="width:71%"></div></div>
   <div class="main has-sftr"><div class="wrap">
     <h1 class="center">Quais são suas preferências de refeição?</h1>
-    <button class="opt" id="o24-veg" onclick="tog('s24','veg')"><div style="font-size:1.3rem;flex-shrink:0">🥦</div><div class="opt-lbl"><div>Vegetariana</div><div class="opt-desc">Verduras, grãos, mas sem carne animal</div></div><div class="opt-chk"></div></button>
-    <button class="opt" id="o24-vegan" onclick="tog('s24','vegan')"><div style="font-size:1.3rem;flex-shrink:0">🌱</div><div class="opt-lbl"><div>Vegana</div><div class="opt-desc">Puramente à base de plantas</div></div><div class="opt-chk"></div></button>
-    <button class="opt" id="o24-gluten" onclick="tog('s24','gluten')"><div style="font-size:1.3rem;flex-shrink:0">🚫</div><div class="opt-lbl"><div>Sem glúten</div></div><div class="opt-chk"></div></button>
-    <button class="opt" id="o24-lactose" onclick="tog('s24','lactose')"><div style="font-size:1.3rem;flex-shrink:0">🥛</div><div class="opt-lbl"><div>Sem lactose</div></div><div class="opt-chk"></div></button>
-    <button class="opt" id="o24-all" onclick="tog('s24','all')"><div style="font-size:1.3rem;flex-shrink:0">🍽️</div><div class="opt-lbl"><div>Sem restrições</div></div><div class="opt-chk"></div></button>
+    <button class="opt" id="o24-veg" onclick="tog('s24','veg')"><img class="opt-img" data-s="IMG_S24_VEGETARIANA" src="" alt=""><div class="opt-lbl"><div>Vegetariana</div><div class="opt-desc">Verduras, grãos, mas sem carne animal</div></div><div class="opt-chk"></div></button>
+    <button class="opt" id="o24-vegan" onclick="tog('s24','vegan')"><img class="opt-img" data-s="IMG_S24_VEGANA" src="" alt=""><div class="opt-lbl"><div>Vegana</div><div class="opt-desc">Puramente à base de plantas</div></div><div class="opt-chk"></div></button>
+    <button class="opt" id="o24-gluten" onclick="tog('s24','gluten')"><img class="opt-img" data-s="IMG_S24_GLUTEN" src="" alt=""><div class="opt-lbl"><div>Sem glúten</div></div><div class="opt-chk"></div></button>
+    <button class="opt" id="o24-lactose" onclick="tog('s24','lactose')"><img class="opt-img" data-s="IMG_S24_LACTOSE" src="" alt=""><div class="opt-lbl"><div>Sem lactose</div></div><div class="opt-chk"></div></button>
+    <button class="opt" id="o24-all" onclick="tog('s24','all')"><img class="opt-img" data-s="IMG_S24_SEMREST" src="" alt=""><div class="opt-lbl"><div>Sem restrições</div></div><div class="opt-chk"></div></button>
   </div></div>
   <div class="sftr"><div class="wrap"><button class="btn" id="btn24" onclick="goTo(25)" disabled style="margin-top:0">Continuar</button></div></div>
 </div>
@@ -760,15 +792,21 @@ const IMG_COUCH = "data:image/webp;base64,UklGRvL3AABXRUJQVlA4WAoAAAAgAAAAfwcA1Q
   <header class="hdr"><button class="hdr-back" onclick="goTo(24)">‹</button><span class="hdr-logo">CALISTENIA</span><span class="hdr-badge">by Atlas</span></header>
   <div class="prog"><div class="prog-fill" style="width:73%"></div></div>
   <div class="main has-sftr"><div class="wrap">
-    <h1 class="center">Você tem algum desses hábitos?</h1>
+    <h1 class="center">Quais desses hábitos você tem?</h1>
     <p class="sub">Escolha todas as opções aplicáveis</p>
-    <button class="opt" id="o25-emoc" onclick="tog('s25','emoc')"><div class="opt-lbl">Comer emocionalmente ou por tédio</div><div class="opt-chk"></div></button>
-    <button class="opt" id="o25-demais" onclick="tog('s25','demais')"><div class="opt-lbl">Comer demais</div><div class="opt-chk"></div></button>
-    <button class="opt" id="o25-lanche" onclick="tog('s25','lanche')"><div class="opt-lbl">Lanche noturno</div><div class="opt-chk"></div></button>
-    <button class="opt" id="o25-pular" onclick="tog('s25','pular')"><div class="opt-lbl">Pular refeições com muita frequência</div><div class="opt-chk"></div></button>
-    <button class="opt" id="o25-nenhuma" onclick="single('s25','nenhuma')"><div class="opt-lbl">Nenhuma das opções acima</div><div class="opt-chk"></div></button>
+    <button class="opt" id="o25-procrast" onclick="tog('s25','procrast')"><div style="font-size:1.2rem;flex-shrink:0">⏰</div><div class="opt-lbl">Procrastinação</div><div class="opt-chk"></div></button>
+    <button class="opt" id="o25-alim" onclick="tog('s25','alim')"><div style="font-size:1.2rem;flex-shrink:0">🍔</div><div class="opt-lbl">Alimentação pouco saudável</div><div class="opt-chk"></div></button>
+    <button class="opt" id="o25-midias" onclick="tog('s25','midias')"><div style="font-size:1.2rem;flex-shrink:0">📱</div><div class="opt-lbl">Mídias sociais</div><div class="opt-chk"></div></button>
+    <button class="opt" id="o25-cafeina" onclick="tog('s25','cafeina')"><div style="font-size:1.2rem;flex-shrink:0">☕</div><div class="opt-lbl">Beber muita cafeína</div><div class="opt-chk"></div></button>
+    <button class="opt" id="o25-series" onclick="tog('s25','series')"><div style="font-size:1.2rem;flex-shrink:0">📺</div><div class="opt-lbl">Maratona de séries</div><div class="opt-chk"></div></button>
+    <button class="opt" id="o25-duvida" onclick="tog('s25','duvida')"><div style="font-size:1.2rem;flex-shrink:0">💭</div><div class="opt-lbl">Dúvida sobre si mesmo</div><div class="opt-chk"></div></button>
+    <button class="opt" id="o25-unhas" onclick="tog('s25','unhas')"><div style="font-size:1.2rem;flex-shrink:0">✋</div><div class="opt-lbl">Roer as unhas</div><div class="opt-chk"></div></button>
+    <button class="opt" id="o25-atrasada" onclick="tog('s25','atrasada')"><div style="font-size:1.2rem;flex-shrink:0">⏳</div><div class="opt-lbl">Estar atrasada</div><div class="opt-chk"></div></button>
+    <button class="opt" id="o25-fumar" onclick="tog('s25','fumar')"><div style="font-size:1.2rem;flex-shrink:0">🚬</div><div class="opt-lbl">Fumar</div><div class="opt-chk"></div></button>
+    <button class="opt" id="o25-alcool" onclick="tog('s25','alcool')"><div style="font-size:1.2rem;flex-shrink:0">🍷</div><div class="opt-lbl">Beber álcool</div><div class="opt-chk"></div></button>
+    <button class="opt" id="o25-nenhum" onclick="single('s25','nenhum')"><div style="font-size:1.2rem;flex-shrink:0">✨</div><div class="opt-lbl">Nenhum deles</div><div class="opt-chk"></div></button>
   </div></div>
-  <div class="sftr"><div class="wrap"><button class="btn" id="btn25" onclick="goTo(26)" disabled style="margin-top:0">Próximo passo</button></div></div>
+  <div class="sftr"><div class="wrap"><button class="btn" id="btn25" onclick="goTo(26)" disabled style="margin-top:0">Continuar</button></div></div>
 </div>
 
 <!-- ===== S26: Eventos de vida ===== -->
@@ -972,11 +1010,15 @@ function injectAll(){
     IMG_CURVY,IMG_THIN,IMG_EMFORMA,IMG_BIKINI,IMG_SATISFIED,
     IMG_BACK,IMG_KNEES,IMG_HIP,IMG_BRACOS,IMG_BREASTS,IMG_BELLY,IMG_SADDLEBAGS,IMG_BARRIGA,IMG_PERNAS,IMG_GORDURA_BARRIGA,IMG_NADEGAS,IMG_COXA,IMG_BUNDA,
     IMG_S8_PEITO,IMG_S8_BRACOS,IMG_S13_COSTAS,IMG_S13_KNEES,IMG_S13_HIP,IMG_S13_OMBROS,
+    IMG_S24_VEGETARIANA,IMG_S24_VEGANA,IMG_S24_GLUTEN,IMG_S24_LACTOSE,IMG_S24_SEMREST,
     IMG_CARLA,IMG_FERNANDA,IMG_JULIANA,IMG_BEATRIZ,IMG_T1,IMG_T2,IMG_T3,IMG_GARANTIA,IMG_MOTIVATION};
   document.querySelectorAll('[data-s]').forEach(el=>{const v=el.getAttribute('data-s');if(M[v])el.src=M[v];});
   const si=(id,src)=>{const e=document.getElementById(id);if(e&&src)e.src=src;};
   si('img-group',IMG_GROUP);si('img-ok',IMG_OK);si('img-thumbsup',IMG_THUMBSUP);
   si('img-motiv',IMG_MOTIVATION);si('img-fitness',IMG_FITNESS);si('img-garantia',IMG_GARANTIA);
+  si('img-sono',IMG_SONO);
+  const ha=document.getElementById('img-agua');
+  if(ha){ha.src=IMG_AGUA;ha.onload=()=>ha.style.opacity='1';}
   si('t-beatriz',IMG_BEATRIZ);si('t-carla',IMG_CARLA);si('t-fernanda',IMG_FERNANDA);si('t-juliana',IMG_JULIANA);
   si('img-calist4a',IMG_COUCH);si('img-calist4b',IMG_COUCH);
   si('load-img',IMG_T1);
